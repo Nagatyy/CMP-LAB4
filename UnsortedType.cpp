@@ -13,6 +13,11 @@ bool UnsortedType::IsFull()  const{
 int UnsortedType::LengthIs()  const{
     return length;
 }
+/*
+ IT IS UNCLEAR WHAT RetrieveItem should do. What item are we trying to retieve from the list?
+ This function simply takes an item as a parameter and will update found as to whether
+ the item exists or not.
+ */
 void UnsortedType::RetrieveItem(Book& item, bool& found ){
     found = false;
     for(int i = 0; i < length;i++)

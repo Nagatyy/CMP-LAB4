@@ -4,6 +4,8 @@
 
 void printLib(UnsortedType&);
 
+
+// main for exc 3
 int main() {
 
     UnsortedType list;
@@ -16,7 +18,7 @@ int main() {
     Book book7(100007, "Epictetus", "Manual for Living", 3.99 , 21 , "Trump Publishing");
     Book book8(100008, "Robert Cialdini", "Influence: The Psychology of Persuasion", 22.00 , 45 , "Spider Publishing");
     Book book9(100009, "Marcus Aurelius", "Meditations", 49.99 , 32 , "Koala Publishing");
-    
+
     list.InsertItem(book1);
     list.InsertItem(book2);
     list.InsertItem(book3);
@@ -27,9 +29,9 @@ int main() {
     list.InsertItem(book8);
     list.InsertItem(book9);
 
-    
+
     printLib(list);
-    
+
     return 0;
 }
 
