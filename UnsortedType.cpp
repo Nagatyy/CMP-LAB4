@@ -27,7 +27,6 @@ void UnsortedType::InsertItem(Book item ){
     if(!IsFull() && !itemExists(item,index)){
         info[length] = item;
         length++;
-        currentPos++;
     }
     else
         std::cout << "Insertion failed. List is full OR item already exists \n";
@@ -37,7 +36,6 @@ void UnsortedType::DeleteItem(Book item ){
     int index;
     
     if(itemExists(item,index)){
-        currentPos--;
         for(int j = index; j < length-1; j++)
             info[j] = info[j+1];
         length--;
@@ -47,9 +45,9 @@ void UnsortedType::ResetList (){
     length = 0;
     currentPos = -1;
 }
-void UnsortedType::GetNextItem(Book& item ){
-    item = info[currentPos];
+void UnsortedType::GetNextItem(Book& item){
     currentPos++;
+    item = info[currentPos];
 }
 
 bool UnsortedType::itemExists(const Book& item, int& index){
@@ -61,4 +59,22 @@ bool UnsortedType::itemExists(const Book& item, int& index){
     index = -1;
     return false;
 }
+
+// additional
+// splits list into 2 with A containing all from publisher and B containing remainder
+void  UnsortedType::Split (UnsortedType &A,  UnsortedType &B , std::string publisher){
+    for(int i = 0; i < length; i++){
+        if(info[i].getPublisher() == publisher)
+            A.InsertItem(info[i]);
+        else
+            B.InsertItem(info[i]);
+    }
+}
+// A will contain books who numCopies is < 10
+void UnsortedType::Order (UnsortedType &A){
+    for(int i = 0; i < length; i++)
+        if(info[i].getNumCopies() <  10)
+            A.InsertItem(info[i]);
+}
+
 

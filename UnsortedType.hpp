@@ -13,14 +13,18 @@ class  UnsortedType    // declares a class data type
 public :             //  8 public member functions
 //    constructor
     UnsortedType () ;
-    bool        IsFull()  const ;
-    int      LengthIs()  const ;  // returns length of list
+    bool    IsFull()  const ;
+    int     LengthIs()  const ;  // returns length of list
     void    RetrieveItem(Book&  item, bool&  found ) ;
     void    InsertItem(Book item ) ;
     void    DeleteItem(Book item ) ;
     void    ResetList();
-    void    GetNextItem(Book & item );
+    void    GetNextItem(Book& item);
     bool    itemExists(const Book&, int&);
+    
+//    additional
+    void Split (UnsortedType &A,  UnsortedType &B , std::string publisher);
+    void Order (UnsortedType &A);
     
 private :                //  3 private data members
     int         length ;
